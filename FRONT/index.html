@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/stylos.css" />
+    <title>Registro Alumnos</title>
+  </head>
+  <body>
+    <header class="tektur" id="header"></header>
+
+    <main>
+      <section class="container">
+        <div id="app">
+          <section v-if="error">Lo sentimos se produjo un error</section>
+          <section v-else>
+            <section v-if="cargando">
+              <p>Cargando .....</p>
+            </section>
+
+            <section v-else>
+              <div class="tt">
+                <table class="tabla">
+                  <thead class="tektur">
+                    <tr>
+                      <th><h1>ID</h1></th>
+                      <th><h1>Nombre</h1></th>
+                      <th><h1>Apellido</h1></th>
+                      <th><h1>Dni</h1></th>
+                      <th><h1>Edad</h1></th>
+                      <th><h1>Sexo</h1></th>
+                      <th><h1>Domicilio</h1></th>
+                      <th><h1>Telefono</h1></th>
+                      <th><h1>Email</h1></th>
+                      <th><h1>Foto</h1></th>
+                      <th><h1>Modalidad</h1></th>
+                      <th><h1>Comentario</h1></th>
+                      <th><h1></h1></th>
+                      <th><h1></h1></th>
+                    </tr>
+                  </thead>
+                  <tbody class="tektur400">
+                    <tr v-for="alumno in alumnos">
+                      <td>{{alumno.id}}</td>
+                      <td>{{alumno.nombre}}</td>
+                      <td>{{alumno.apellido}}</td>
+                      <td>{{alumno.dni}}</td>
+                      <td>{{alumno.edad}}</td>
+                      <td>{{alumno.sexo}}</td>
+                      <td>{{alumno.domicilio}}</td>
+                      <td>{{alumno.telefono}}</td>
+                      <td>{{alumno.email}}</td>
+                      <td><img :src="alumno.imagen" alt="" /></td>
+                      <td>{{alumno.modalidad}}</td>
+                      <td>{{alumno.comentario}}</td>
+                      <td>
+                        <button
+                          class="btn"
+                          type="button"
+                          v-on:click="eliminar(alumno.id)"
+                        >
+                          <i class="fa-solid fa-trash"></i> Eliminar
+                        </button>
+                      </td>
+                      <td>
+                        <div class="block-pad">
+                          <a
+                            class="boton"
+                            :href="'templates/editar-alumnos.html?id='+ alumno.id+'&nombre=' +alumno.nombre+ '&apellido='+alumno.apellido+'&dni='+alumno.dni + '&edad='+alumno.edad+ '&domicilio='+alumno.domicilio+ '&telefono='+alumno.telefono+ '&email='+alumno.email+ '&imagen='+alumno.imagen+ '&modalidad='+alumno.modalidad+  '&comentario='+alumno.comentario"
+                          >
+                            <i class="fa-solid fa-file-pen"></i> Editar</a
+                          >
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer></footer>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/tabla-alumnos.js"></script>
+    <script src="js/header.js"></script>
+    <script
+      src="https://kit.fontawesome.com/16085f5e5d.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

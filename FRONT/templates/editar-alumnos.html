@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario de Inscripcion</title>
+    <link rel="stylesheet" href="../css/stylos.css" />
+  </head>
+  <body>
+    <table border="1" width="100%" cellspacing="0">
+      <tr>
+        <td rowspan="3" align="center"><h1>Universidad del Norte</h1></td>
+        <td>Version:1.1</td>
+      </tr>
+      <tr>
+        <td>Tipo: Especializacion</td>
+      </tr>
+      <tr>
+        <td>Codigo: AD-415</td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">
+          <h2>Formulario de Inscripcion</h2>
+          <p>
+            (Valido para alumnos e interesados de capital, Valle Viejo y Fray
+            Mamerto Esquiu)
+          </p>
+        </td>
+      </tr>
+    </table>
+    <header class="tektur" id="headertemplate"></header>
+
+    <h2 class="tektur-unica">Seminario de Inteligencia Artificial (IA)</h2>
+    <p>
+      Le pedimos llenar el formulario teniendo en cuenta que los campos
+      <span class="color-rojo"> con asteriscos (*) </span> son obligatorios
+    </p>
+    <form class="tektur400" action="" name="form-ia" method="post">
+      <fieldset class="field-color">
+        <legend><strong>Datos personales</strong></legend>
+        <p>
+          <label
+            >ID : <input type="text" name="id" id="id" disabled size="40"
+          /></label>
+        </p>
+        <p>
+          <label
+            >Nombre <span class="color-rojo">*</span>:
+            <input
+              type="text"
+              name="nombre"
+              id="nombre"
+              required
+              placeholder="Nombre completo"
+              size="40"
+          /></label>
+        </p>
+        <p>
+          <label
+            >Apellido <span class="color-rojo">*</span>:
+            <input
+              type="text"
+              name="apellido"
+              id="apellido"
+              required
+              placeholder="Primer apellido"
+          /></label>
+        </p>
+        <p>
+          <label
+            >DNI <span class="color-rojo">*</span>:
+            <input
+              type="number"
+              name="dni"
+              id="dni"
+              pattern="[0-9]"
+              maxlength="8"
+              oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+              required
+          /></label>
+        </p>
+        <p>
+          <label
+            >Edad <span class="color-rojo">*</span>:
+            <input
+              type="number"
+              name="edad"
+              id="edad"
+              pattern="[0-9]"
+              min="0"
+              maxlength="3"
+              oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+              required
+          /></label>
+        </p>
+        <p>
+          <label>Sexo <span class="color-rojo">*</span>: </label>
+          <br />
+          <label>
+            <input
+              type="radio"
+              name="sexo"
+              value="masculino"
+              id="masculino"
+              required
+            />
+            Hombre
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="sexo"
+              value="femenino"
+              id="fenenino"
+              required
+            />
+            Mujer
+          </label>
+        </p>
+        <p>
+          <label
+            >Domicilio:
+            <select name="domicilio" id="domicilio" required>
+              <option value="capital">Capital-Catamarca</option>
+              <option value="fme">Fray Mamerto Esquiu</option>
+              <option value="valle viejo">Valle Viejo</option>
+            </select>
+          </label>
+        </p>
+        <p>
+          <label>
+            Telefono:
+            <input
+              type="number"
+              name="telefono"
+              id="telefono"
+              placeholder="Numero"
+              maxlength="20"
+            />
+          </label>
+        </p>
+        <p>
+          <label
+            >Email <span class="color-rojo">*</span>:
+            <input
+              type="email"
+              name="email"
+              id="email"
+              required
+              placeholder="Escriba su E-mail"
+            />
+          </label>
+        </p>
+        <p>
+          <label
+            >Foto <span class="color-rojo">*</span>:
+            <input type="text" id="imagen" name="foto" required />
+          </label>
+        </p>
+      </fieldset>
+      <br />
+
+      <fieldset class="field-color">
+        <legend><strong>Datos de cursado</strong></legend>
+
+        <p>
+          <label>Modalidad <span class="color-rojo">*</span>:</label>
+          <br />
+          <label>
+            <input
+              type="radio"
+              name="modalidad"
+              value="virtual"
+              id="virtual"
+              required
+            />
+            Virtual
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="modalidad"
+              value="presencial"
+              id="presencial"
+              required
+            />
+            Presencial
+          </label>
+        </p>
+
+        <p>
+          <label>Interes en el seminario:</label>
+          <br />
+          <textarea
+            name="interes"
+            id="comentario"
+            cols="37"
+            rows="6"
+            placeholder="Explique brevemente su interes en este seminario"
+          ></textarea>
+        </p>
+        <div class="boton">
+          <button class="modificar" type="button" onclick="validarYModificar()">
+            Modificar
+          </button>
+        </div>
+      </fieldset>
+    </form>
+
+    <script src="../js/datos_editar.js"></script>
+    <script src="../js/editar-alumno.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/validar-formulario.js"></script>
+  </body>
+</html>
